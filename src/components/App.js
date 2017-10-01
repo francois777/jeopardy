@@ -14,8 +14,7 @@ export class App extends Component {
     }
   }
   render() {
-    console.log('App props, when rendering:', this.props);
-
+    // console.log('App props, when rendering:', this.props);
     return(
       <div>
         <h2>Jeopardy!</h2>
