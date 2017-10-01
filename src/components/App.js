@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCategories, pickCategory } from '../actions';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
-    console.log('App props, before fetching categories:', this.props);
-
     if (this.props.categories.length === 0 ) {
       // Get the categories from the API and map them
       // as props on the component.
