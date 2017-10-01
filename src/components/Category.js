@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Clue from './Clue';
 
-class Category extends Component {
+export class Category extends Component {
   constructor() {
     super();
     this.state = { clues: [] };
@@ -15,7 +15,7 @@ class Category extends Component {
     .then(json => this.setState({ clues: json }));
   }
   render() {
-    console.log('category props', this.props);
+    //console.log('category props', this.props);
 
     return (
       <div>
@@ -25,7 +25,7 @@ class Category extends Component {
           this.state.clues.map(clue => {
             return (
               <div key={clue.id}>
-                <Clue key={clue.id} clue={clue} />          
+                <Clue key={clue.id} clue={clue} />
               </div>
             )
           })
@@ -35,10 +35,21 @@ class Category extends Component {
   }
 }
 
+export class LinkedCategory extends Component {
+  render(){
+    return(
+      <div>
+        <Link className='link-home' to='/'><h4>Home</h4></Link>
+        <Category category={this.props.category} />
+      </div>
+    );
+  }
+}
+
 function mapStateToProps(state) {
   return { category: state.category }
 }
 
 // A 2nd parameter of null means we are not binding
 // any action creators
-export default connect(mapStateToProps, null)(Category);
+export default connect(mapStateToProps, null)(LinkedCategory);
