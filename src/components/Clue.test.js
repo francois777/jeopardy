@@ -1,4 +1,6 @@
 import React from 'react';
+import Enzyme from 'enzyme';
+
 import { shallow } from 'enzyme';
 import { Clue } from './Clue';
 import { clue } from '../data/fixtures';
@@ -6,10 +8,8 @@ import { clue } from '../data/fixtures';
 const props = { clue };
 const { id, question, answer, value } = props.clue;
 
-import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Clue', () => {
   let clueWrapper = shallow(<Clue {...props} />);
